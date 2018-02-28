@@ -20,10 +20,12 @@
 
         public string Statement()
         {
-            String result = "Rental Record for " + this.Name + "\n";
             double totalAmount = 0;
             int frequentRenterPoints = 0;
             IEnumerator<Rental> rentalEnum = Rentals.GetEnumerator();
+
+            // add header lines
+            String result = "Rental Record for " + this.Name + "\n";
 
             // determine amounts for each line
             while (rentalEnum.MoveNext())
@@ -58,6 +60,8 @@
                 // show figures for this rental
                 result += "\t" + each.Movie.Title + "\t" +
                             thisAmount.ToString() + "\n";
+                            
+                // compute total amount
                 totalAmount += thisAmount;
             }
 
