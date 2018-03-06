@@ -1,12 +1,12 @@
 ﻿namespace MovieRental
 {
     using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    [TestClass]
+    using NUnit.Framework;
+    
+    [TestFixture]
     public class UnitTest
     {
-        [TestMethod]
+        [Test]
         public void TestStatement()
         {
             Movie movie = new Movie("Transformer", Movie.REGULAR);
@@ -17,7 +17,7 @@
             customer.AddRental(rental);
 
             String statement = customer.Statement();
-            StringAssert.Contains(statement, "Transformer");
+            StringAssert.Contains("Transformer", statement);
         }
     }
 }
